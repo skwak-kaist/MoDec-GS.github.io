@@ -1,5 +1,5 @@
 body {
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Noto Sans', sans-serif; 
 }
 
 
@@ -165,7 +165,7 @@ body {
 }
 
 .container:not(.is-max-desktop):not(.is-max-widescreen) {
-    max-width: 1000px;
+    max-width: 1200px;
 }
 
 .section {
