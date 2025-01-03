@@ -29,12 +29,19 @@ function playVids(videoId) {
       bcr = videoMerge.getBoundingClientRect();
       position = (e.touches[0].pageX - bcr.x) / bcr.width;
     }
+    function trackClick(e) {
+      if (vid.paused) {
+        vid.play();
+      } else {
+        vid.pause();
+      }
+    }
 
 
     videoMerge.addEventListener("mousemove", trackLocation, false);
     videoMerge.addEventListener("touchstart", trackLocationTouch, false);
     videoMerge.addEventListener("touchmove", trackLocationTouch, false);
-    // videoMerge.addEventListener("click", trackClick, false);
+    videoMerge.addEventListener("click", trackClick, false);
 
     function drawLoop() {
       mergeContext.drawImage(
@@ -147,16 +154,16 @@ function playVids(videoId) {
 
       mergeContext.closePath();
 
-      //mergeContext.fillStyle = "#AAAAAA";
-      //mergeContext.fill();
+      mergeContext.fillStyle = "#AAAAAA";
+      mergeContext.fill();
 
-      //mergeContext.fillStyle = "rgba(255, 255, 255, 0.4)";
-      //mergeContext.fillRect((vidWidth * widthRatio) / 2 - 180, 15, 360, 50);
+      mergeContext.fillStyle = "rgba(255, 255, 255, 0.4)";
+      mergeContext.fillRect((vidWidth * widthRatio) / 2 - 180, 15, 360, 50);
 
-      //mergeContext.fillStyle = "#000000";
-      //mergeContext.textAlign = "center";
-      //mergeContext.font = "30px Arial";
-      //mergeContext.fillText("Click to Pause or Resume", (vidWidth * widthRatio) / 2, 50);
+      mergeContext.fillStyle = "#000000";
+      mergeContext.textAlign = "center";
+      mergeContext.font = "30px Arial";
+      mergeContext.fillText("Click to Pause or Resume", (vidWidth * widthRatio) / 2, 50);
     }
     requestAnimationFrame(drawLoop);
   }
@@ -191,18 +198,23 @@ function initVideo() {
   playVids(vid.id);
 }
 
-function changeVideo(videoSrc){
-  vid = document.getElementById("viz_input");
-  vid.src = videoSrc;
-  vid.play();
+function resizeVideoContainer() {
+  var video = document.getElementById('viz_input');
+  var videoContainer = document.getElementById('videoContainer');
+
+  videoContainer.style.width = video.videoWidth + 'px';
+  videoContainer.style.height = video.videoHeight + 'px';
 }
 
-function togglePlay() {
-  vid = document.getElementById("viz_input");
-  if (vid.paused) {
-    vid.play();
-  }
-  else {
-    vid.pause();
-  }
+
+function changeVideo(src) {
+  var video = document.getElementById('viz_input');
+  var videoContainer = document.getElementById('videoContainer');
+
+  video.src = src;
+  video.load();
+  video.onloadedmetadata = function() {
+      videoContainer.style.width = video.videoWidth + 'px';
+      videoContainer.style.height = video.videoHeight + 'px';
+  };
 }

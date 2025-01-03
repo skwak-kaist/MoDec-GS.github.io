@@ -124,12 +124,12 @@
 
 <section class="hero">
   <div class="hero-body">
-    <div class="container is-max-desktop">
+    <div class="container is-widescreen">
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <div class="title is-2 publication-title"><h1 style="display: inline; clear:none;"> <font color="#FFBF00"><b>Mo</b></font><font color="#04B404"><b>Dec</b></font><img src="./static/image/Dec_tree_image.png" width="40", height="40"><b>-GS</b>: Global-to-Local <font color="#FFBF00"><b>Mo</b></font>tion <font color="#04B404"><b>Dec</b></font>omposition and Temporal Interval Adjustment for Compact Dynamic 3D Gaussian Splatting</h1></div>
           <div class="is-size-5 publication-authors">
-            <span class="author-block">This page is under reconstruction</span>
+            <!-- <span class="author-block">This page is under reconstruction</span> -->
             <!-- <span class="author-block"><sup>†</sup>Corresponding author</span> -->
           </div>
           <div class="is-size-5 publication-authors">
@@ -210,23 +210,26 @@
   </div>
 </section>
 
-
-<section class="section" align="center">
+<section class="section">
   <div class="container is-widescreen">
-    <h2 class="title is-3 no-bottom">Visual Comparison</h2>
-      <div class="video-container" align="center">
-          <video class="video" id="viz_input" loop muted src="./static/video/cut_lemon.mp4" onloadeddata="initVideo()"></video>
-          <canvas height=0 class="videoMerge" id="viz_inputMerge"></canvas>
-      </div>
-    <div class="video-select">
-      <!-- <a class="video-item" onclick="changeVideo('./static/video/torchocolate.mp4')"><img src="./static/image/vasedeck_gt.png"></a> -->
-      <!-- <a class="video-item" onclick="changeVideo('./static/image/garden.mp4')"><img src="./static/image/garden_gt.png"></a> -->
-      <!--<a class="video-item" onclick="changeVideo('./static/image/bonsai4.mp4')"><img src="./static/image/bonsai2_gt.png"></a> -->
-      <!--<a class="video-item" onclick="changeVideo('./static/image/trex4.mp4')"><img src="./static/image/trex_gt.png"></a> -->
-      <!--<a class="video-item" onclick="changeVideo('./static/image/M604.mp4')"><img src="./static/image/M60_gt.png"></a> -->
-      <!-- <a class="video-item" onclick="changeVideo('./static/image/orchids.mp4')"><img src="./static/image/orchids_gt.png"></a> -->
-     
-    </div>
+    <h2 class="title is-3 no-bottom">Visual Comparison with SOTA methods</h2>
+    <div class="column is-full">
+    We compare our method with the state-of-the-art methods SC-GS [<span style="color: blue;">18</span>], 
+    4DGS [<span style="color: blue;">52</span>], Deformable 3DGS [<span style="color: blue;">55</span>] on monocular video sequences. We provide quantitative performance along with the rendering results: PSNR<a href="#top">&uarr; </a>, SSIM<a href="#top">&uarr; </a>, 
+    LPIPS<a href="#bottom">&uarr; </a>, and storage size<a href="#bottom">&darr; </a>. 
+    The proposed method shows <span style="color: red;">superior quantitative and qualitative quality performance</span> than SOTA methods 
+    even with <span style="color: red;">compact model size</span>. <br><br>
+    
+    <div class="video-container" id="videoContainer" align="center">
+      <video class="video" id="viz_input" loop muted src="./static/video/cut_lemon_final.mp4" onloadeddata="initVideo()"></video>
+      <canvas height=0 class="videoMerge" id="viz_inputMerge"></canvas>
+  </div>
+  <div class="video-select">
+      <a class="video-item" onclick="changeVideo('./static/video/cut_lemon_final.mp4')"><img src="./static/image/cut-lemon_thumbnail.png"></a>
+      <a class="video-item" onclick="changeVideo('./static/video/torchocolate.mp4')"><img src="./static/image/torchocolate_thumbnail.png"></a>
+      <a class="video-item" onclick="changeVideo('./static/video/peel-banana.mp4')"><img src="./static/image/peel-banana_thumbnail.png"></a>
+      <a class="video-item" onclick="changeVideo('./static/video/tamping.mp4')"><img src="./static/image/tamping_thumbnail.png"></a>
+  </div>  
   </div>
 </section>
 <script>
@@ -238,28 +241,20 @@ bulmaCarousel.attach('#results-carousel', {
 </script>
 </section>
 
-
-
 <section class="section">
-  <div class="container is-max-desktop">
+  <div class="container is-widescreen">
     <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">          
-          TL;DR: 
-          We propose MoDec-GS, a memory-efficient dynamic 3D Gaussian Splatting (3DGS) framework for novel view reconstruction in complex real-world scenarios. 
-          At its core is the Global-to-Local Motion Decomposition (GLMD) method, which captures dynamic motions using Global and Local Canonical Scaffolds with coarse-to-fine adjustments. 
-          Temporal Interval Adjustment (TIA) further optimizes temporal segment assignments. Experiments show that MoDec-GS reduces model size by 70% on average compared to state-of-the-art methods while maintaining or improving rendering quality.
-
-        </div>
+    <div class="column is-full">
+      <h2 class="title is-3">TL;DR</h2>
+      <div class="content has-text-justified tldr-background">
+        We propose <strong style="color: navy;">MoDec-GS</strong>, a memory-efficient dynamic 3D Gaussian Splatting (3DGS) framework for novel view reconstruction in complex real-world scenarios.
+        At its core is the <strong style="color: navy;">Global-to-Local Motion Decomposition (GLMD)</strong> method, which captures dynamic motions using Global and Local Canonical Scaffolds with coarse-to-fine adjustments.
+        <strong style="color: navy;">Temporal Interval Adjustment (TIA)</strong> further optimizes temporal segment assignments. Experiments show that <em style="color: red;">MoDec-GS reduces model size by 70% on average</em> compared to state-of-the-art methods while maintaining or improving rendering quality.
       </div>
     </div>
-    <!--/ Abstract. -->
-
-  </section>
-
-
+  </div>
+  <!--/ Abstract. -->
+</section>
 
 <section class="section" align="center">
   <div class="container is-widescreen">
@@ -268,6 +263,12 @@ bulmaCarousel.attach('#results-carousel', {
       <div class="column is-full">
         <image src="./static/image/Method overview.png" class="img-responsive" alt="Fig1"><br>
         <div class="content has-text-justified">
+          <strong style="color: black;">Overview of MoDec-GS.</strong> To effectively train dynamic 3D Gaussians with complex motion, we introduce 
+           Global-to-Local Motion Decomposition (GLMD). We first train a Global Canonical Scaffold-GS (Global CS) with entire frames, 
+and apply a Global Anchor Deformation (GAD) to Local Canonical Scaffold-GS (Local CS) dedicated to represent its corresponding 
+temporal segment. Next, to finely adjust the remaining local motion, we apply Local Gaussian Deformation (LGD) which 
+explicitly deforms the reconstructed 3D Gaussians with a shared hexplane. During the training, Temporal Interval Adjustment 
+(TIA) is performed, optimizing the temporal interval into a non-uniform interval that adopts to the scene’s level of motion.
 
         </div>
       </div>
@@ -275,118 +276,110 @@ bulmaCarousel.attach('#results-carousel', {
   </div>
 </section>
 
+<section class="section">
+  <div class="container is-widescreen">
+    <!-- Abstract. -->
+    <div class="column is-full">
+      <h2 class="title is-3">Abstract</h2>
+      <div class="content has-text-justified tldr-background">
+        3D Gaussian Splatting (3DGS) has made significant strides in scene representation and neural rendering, 
+        with intense efforts focused on adapting it for dynamic scenes. Despite delivering remarkable rendering quality and speed, 
+        existing methods struggle with storage demands and representing complex real-world motions. To tackle these issues,
+         we propose MoDecGS, a memory-efficient Gaussian splatting framework designed for reconstructing novel views in challenging 
+         scenarios with complex motions. We introduce GlobaltoLocal Motion Decomposition (GLMD) to effectively capture dynamic motions
+          in a coarsetofine manner. This approach leverages Global Canonical Scaffolds (Global CS) and Local Canonical Scaffolds (Local CS), 
+          extending static Scaffold representation to dynamic video reconstruction. For Global CS, we propose Global Anchor Deformation (GAD) 
+          to efficiently represent global dynamics along complex motions, by directly deforming the implicit Scaffold attributes
+           which are anchor position, offset, and local context features. Next, we finely adjust local motions via the Local Gaussian 
+           Deformation (LGD) of Local CS explicitly. Additionally, we introduce Temporal Interval Adjustment (TIA) to automatically control 
+           the temporal coverage of each Local CS during training, allowing MoDecGS to find optimal interval assignments based 
+           on the specified number of temporal segments. Extensive evaluations demonstrate that MoDecGS achieves an average 
+           70% reduction in model size over stateoftheart methods for dynamic 3D Gaussians from realworld dynamic videos while
+            maintaining or even improving rendering quality.
+      </div>
+    </div>
+  </div>
+  <!--/ Abstract. -->
+</section>
+
+
+
+
+
+
 <section class="section" align="center">
   <div class="container is-widescreen">
-    <h2 class="title is-3">Concept and Effect of 2-stage deformation</h2>
+    <h2 class="title is-3">2-stage deformation</h2>
     <div class="columns is-centered has-text-centered">
       <div class="column is-full">
 
         <image src="./static/image/GLMD3.png" class="img-responsive" alt="Fig1"><br>
         <div class="content has-text-justified">
 
+          <strong style="color: black;">Concept and Effect of 2-stage Deformation.</strong> For representing a complex motion of 3D Gaussians, a global movement 
+          over time intervals can be more efficiently handled through deformation 
+          of anchor itself. In contrast, subtle motions of individual 
+          3D Gaussians within a time interval can be effectively addressed 
+          by explicit deformation of each Gaussian.
+
         </div>
       </div>
     </div>
   </div>
 </section>
 
-
-
-<section class="section">
+<section class="section" align="center">
   <div class="container is-widescreen">
     <h2 class="title is-3">Quantitative Results</h2>
     <div class="columns is-centered has-text-centered">
       <div class="column is-full">
         <image src="./static/image/quantitative_results.png" class="img-responsive" alt="quantitative_results"><br>
         <div class="content has-text-justified">
-          <p>
-            Quantitative comparison on 5 benchmark datasets and 1 custom dataset. All results were obtained under the same experimental conditions, and using the default configuration of Plenoxels for each dataset. 
-            If there is no configuration for the dataset (such as MipNeRF360-v2), 'custom_alt.json' was used.
-          </p>
+                      Quantitative results comparison on Dycheck-iPhone [<span style="color: blue;">14</span>] and HyperNeRF [<span style="color: blue;">43</span>] monocular datasets. 
+            All results were locally re-generated in our environment and averaged across all sequences of the dataset. 
+            Red and blue denote the best and second best performances, respectively. For iPhone dataset, the masked metrics are calculated using the masks provided the authors. 
+        <br><br>
+
+            <image src="./static/image/quantitative_results2.png" class="img-responsive" alt="quantitative_results2"><br>
+            
+              Performance comparison with a NeRF-extension framework, including training and rendering speed. Averaged over 
+              536×960 HyperNeRF’s vrig datasets [<span style="color: blue;">43</span>]. The performance numbers of [<span style="color: blue;">10, 16, 20, 42, 43</span>] are sourced from [<span style="color: blue;">52</span>].  
+
         </div>
       </div>
     </div>
   </div>
   </section>
 
-<!--
-<section class="section" align="center">
-  <div class="container is-widescreen">
-    <h2 class="title is-3 no-bottom">Demo</h2>
-      <div class="video-container" align="center">
-        <a onclick="togglePlay()">
-          <video class="video" id="viz_input" loop muted src="./static/video/000.mp4" onloadeddata="initVideo()"></video>
-          <canvas height=0 class="videoMerge" id="viz_inputMerge"></canvas>
-        </a>
-      </div>
-    <div class="video-select">
-      <a class="video-item" onclick="changeVideo('./static/video/000.mp4')"><img src="./static/image/000.png"></a>
-      <a class="video-item" onclick="changeVideo('./static/video/011.mp4')"><img src="./static/image/011.png"></a>
-      <a class="video-item" onclick="changeVideo('./static/video/015.mp4')"><img src="./static/image/015.png"></a>
-      <a class="video-item" onclick="changeVideo('./static/video/020.mp4')"><img src="./static/image/020.png"></a>
-    </div>
-  </div>
-</section>
-<script>
-bulmaCarousel.attach('#results-carousel', {
-  slidesToShow: 2,
-  loop: true,
-  pagination: false,
-});
-</script>
--->
 
-
-<!--
-
-
-  <section class="section">
+  <section class="section" align="center">
     <div class="container is-widescreen">
-      <h2 class="title is-3">Qualitative Results</h2>
       <div class="columns is-centered has-text-centered">
         <div class="column is-full">
-          <image src="./static/image/qualitative_result.png" class="img-responsive" alt="DDNeRF_Architecture_v21"><br>
-          <div class="content has-text-justified">
-            <p>
-             Visual comparison results of different methods for ×4 VSRDB.
-            </p>
+
+                <div class="image-container">
+                  <img src="./static/image/result_graph.png" alt="Result Graph" class="result-graph">
+                </div>
+                <div class="content has-text-justified">
+                  <strong style="color: black;">Performance visualization graph.</strong>The x-axis represents rendering speed (FPS)↑, and the y-axis indicates PSNR↑. Each framework is depicted as a bubble, with the size of the bubble representing the model storage size.
+                
+  
           </div>
         </div>
       </div>
-    </div>
     </section>
 
-<section class="section">
-  <div class="container is-widescreen">
-    
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Acknowledgement</h2>
 
-        <div class="content has-text-justified">
-          <p>
-            This work was supported by Institute of Information & communications Technology Planning & Evaluation (IITP) grant funded by the Korea government (MSIT) (No. 2021-0- 00087, Development of high-quality conversion technology for SD/HD low-quality media).
-          </p>
-        </div>
+  <section class="section" align="center">
+    <div class="container is-widescreen">
+      <h2 class="title is-3">Demo Video</h2>
+      <div class="video-container" align="center">
+        <video class="video" id="moddec_gs_demo" controls>
+          <source src="./static/video/MoDec-GS_Demo.mp4" type="video/mp4">
+        </video>
       </div>
     </div>
-    
-  </div>
-</section>
-
-
-<section class="section" id="BibTeX">
-  <div class="container is-widescreen content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@inproceedings{youk2024fmanet,
-  author    = {Geunhyuk Youk and Jihyong Oh and Munchurl Kim},
-  title     = {FMA-Net: Flow-Guided Dynamic Filtering and Iterative Feature Refinement with Multi-Attention for Joint Video Super-Resolution and Deblurring},
-  booktitle = {CVPR},
-  year      = {2024},
- }</code></pre>
-  </div>
-</section>
--->
+  </section>
 
 <footer class="footer">
   <div class="container">
@@ -403,9 +396,7 @@ bulmaCarousel.attach('#results-carousel', {
       <div class="column is-8">
         <div class="content">
           <p>
-            <!--
-            We thank the authors of <a target="_blank" rel="noopener noreferrer" href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>  that kindly open sourced the template of this website.
-            -->
+            
             Please visit our <a target="_blank" rel="noopener noreferrer" href="https://github.com/KAIST-VICLab">VIC-Lab</a> for more interesting researches
           </p>
         </div>
