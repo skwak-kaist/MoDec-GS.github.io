@@ -198,23 +198,18 @@ function initVideo() {
   playVids(vid.id);
 }
 
-function resizeVideoContainer() {
-  var video = document.getElementById('viz_input');
-  var videoContainer = document.getElementById('videoContainer');
-
-  videoContainer.style.width = video.videoWidth + 'px';
-  videoContainer.style.height = video.videoHeight + 'px';
+function changeVideo(videoSrc){
+  vid = document.getElementById("viz_input");
+  vid.src = videoSrc;
+  vid.play();
 }
 
-
-function changeVideo(src) {
-  var video = document.getElementById('viz_input');
-  var videoContainer = document.getElementById('videoContainer');
-
-  video.src = src;
-  video.load();
-  video.onloadedmetadata = function() {
-      videoContainer.style.width = video.videoWidth + 'px';
-      videoContainer.style.height = video.videoHeight + 'px';
-  };
+function togglePlay() {
+  vid = document.getElementById("viz_input");
+  if (vid.paused) {
+    vid.play();
+  }
+  else {
+    vid.pause();
+  }
 }

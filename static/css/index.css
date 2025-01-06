@@ -193,3 +193,9 @@ body {
   width: 70%;
   height: auto; /* 비율을 유지하면서 높이 자동 조정 */
 }
+
+.tia-image {
+  width: 80%;
+  height: auto; /* 비율을 유지하면서 높이 자동 조정 */
+}
+
